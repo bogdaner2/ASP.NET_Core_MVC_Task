@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASP.NET_Core_MVC_Task.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,8 @@ namespace ASP.NET_Core_MVC_Task
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LoadDataService data = new LoadDataService();
+            data.LoadData();
         }
 
         public IConfiguration Configuration { get; }

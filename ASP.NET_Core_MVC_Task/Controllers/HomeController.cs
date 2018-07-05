@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ASP.NET_Core_MVC_Task.Models;
+using HTTP_LINQ_Practice;
 
 namespace ASP.NET_Core_MVC_Task.Controllers
 {
@@ -12,6 +9,7 @@ namespace ASP.NET_Core_MVC_Task.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Users = QueryService.Users[0].Name;
             return View();
         }
 
