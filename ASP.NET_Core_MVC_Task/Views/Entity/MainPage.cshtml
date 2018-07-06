@@ -4,10 +4,37 @@
 }
 
 <h2>Please input id and select item</h2>
-<ul>
-    <li>User</li>
-    <li>Comment</li>
-    <li>Post</li>
-    <li>Todo</li>
-</ul>
+@using (Html.BeginForm("Select", "Entity", FormMethod.Post)) 
+{
+<fieldset>
+    <legend>Choose type of object</legend>
+
+    <div>
+        <input type="radio" id="user" name ="type" value="user" checked />
+        <label for="user">User</label>
+    </div>
+
+    <div>
+        <input type="radio" name = "type" id="post" value="post" />
+        <label for="post">Post</label>
+    </div>
+
+    <div>
+        <input type="radio" name = "type" id="todo" value="todo" />
+        <label for="todo">Todo</label>
+    </div>
+
+    <div>
+        <input type="radio" name = "type" id="comment" value="comment" />
+        <label for="comment">Comment</label>
+    </div>
+    <div>
+        <p>Input object id</p>
+        <input type="text" name="Id"/>
+
+        <input type="submit" value="input"/>
+    </div>
+</fieldset>
+}
+
 

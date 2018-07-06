@@ -44,7 +44,7 @@ namespace ASP.NET_Core_MVC_Task
                     template: "{controller=Menu}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "Entity",
-                    template: "{controller=Entity}/{action=MainPage}/{commentId?}");
+                    template: "{controller=Entity}/{action=MainPage}/{Id:int?}");
             });
 
         }
