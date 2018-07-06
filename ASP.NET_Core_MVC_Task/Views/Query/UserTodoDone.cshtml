@@ -1,8 +1,25 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "UserTodoDone";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UserTodoDone</h2>
+<h2>The list of todo which are done</h2>
+<h3>User : @Html.ActionLink((string)ViewBag.User.Name, "Users", "Entity", new { id = ViewBag.User.Id }, null) Max lenth : @ViewBag.MaxLength</h3>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Todo Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todo in ViewBag.result)
+        {
+            <tr>
+                <th scope="row">@todo.Id</th>
+                <td>@todo.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
 

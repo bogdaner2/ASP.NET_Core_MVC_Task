@@ -24,7 +24,7 @@ namespace ASP.NET_Core_MVC_Task.Models
             {
                 var result = user.Posts
                     .SelectMany(p => p.Comments)
-                    .Where(c => c.UserId == userId && c.Body.Length < maxLenth);
+                    .Where(c => c.Body.Length < maxLenth);
                 return result.ToList();
             }
             return null;
@@ -77,30 +77,29 @@ namespace ASP.NET_Core_MVC_Task.Models
             var commCount = post.Comments.Count(c => c.Likes == 0 || c.Body.Length < 80);
             return new QueryStructPost(post,longestComment,mostLikestComment,commCount);
         }
-         public static User FindUser(int id)
-         {
+        public static User FindUser(int id)
+        {
              return Users.FirstOrDefault(u => u.Id == id);
-         }
-
-         public static Post FindPost(int id)
-         {
+        }
+        public static Post FindPost(int id)
+        {
             return Users
                 .SelectMany(u => u.Posts)
                 .FirstOrDefault(p => p.Id == id);
-         }
-         public static ToDo FindTodo(int id)
-         {
+        }
+        public static ToDo FindTodo(int id)
+        {
             return Users
                  .SelectMany(t => t.ToDos)
                  .FirstOrDefault(t => t.Id == id);
-         }
-         public static Comment FindComment(int id)
-         {
+        }
+        public static Comment FindComment(int id)
+        {
             return QueryService.Users
                 .SelectMany(u => u.Posts)
                 .SelectMany(p => p.Comments)
                 .FirstOrDefault(c => c.Id == id);
-         }
+        }
 
     }
 }

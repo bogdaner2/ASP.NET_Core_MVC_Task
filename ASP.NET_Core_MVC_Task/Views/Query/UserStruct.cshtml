@@ -1,8 +1,26 @@
-﻿
+﻿@model QueryStructPost
 @{
-    ViewData["Title"] = "GetComments";
+    ViewData["Title"] = "User struct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>GetComments</h2>
+<h2>User struct</h2>
+<h3>User : @Html.ActionLink((string)ViewBag.User.Name, "Users", "Entity", new { id = ViewBag.User.Id }, null)</h3>
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Todo Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var todo in ViewBag.result)
+    {
+        <tr>
+            <th scope="row">@todo.Id</th>
+            <td>@todo.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
 

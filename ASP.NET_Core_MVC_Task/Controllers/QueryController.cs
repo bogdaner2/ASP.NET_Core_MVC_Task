@@ -11,44 +11,58 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         }
 
         [HttpPost]
-        public IActionResult Select(int Id, string type,int maxLenth = 50)
+        public IActionResult Select(int id, string type,int maxLenth = 50)
         {
-            if (type == "comment")
+            if (type == "comInPost")
             {
-                return RedirectToAction("CommentsInPost", new { Id = Id });
+                return RedirectToAction("CommentsInPost", new { id = id });
             }
+            else if (type == "comByLen")
+            {
+                 return RedirectToAction("UserComments", new { id = id ,maxLenth = maxLenth });
+            }
+
             return NoContent();
-            //else if (type == "user")
+            //else if (type == "post")
             //{
-            //   // return RedirectToAction("Users", new { Id = Id });
+            //    // return RedirectToAction("Posts", new { id = id });
             //}
             //else if (type == "post")
             //{
-            //   // return RedirectToAction("Posts", new { Id = Id });
+            //    // return RedirectToAction("Posts", new { id = id });
+            //}
+            //else if (type == "post")
+            //{
+            //    // return RedirectToAction("Posts", new { id = id });
+            //}
+            //else if (type == "post")
+            //{
+            //    // return RedirectToAction("Posts", new { id = id });
             //}
             //else
             //{
-            //   // return RedirectToAction("Todos", new { Id = Id });
+            //     return RedirectToAction("PostStruct", new { id = id });
             //}
         }
 
-        public IActionResult CommentsInPost(int Id)
+        public IActionResult CommentsInPost(int id)
         {
-            var result = QueryService.GetCommentsInPost(Id);
+            var result = QueryService.GetCommentsInPost(id);
             ViewBag.result = result;
             return View();
         }
 
-        public IActionResult UserComments(int Id,int maxLenth)
+        public IActionResult UserComments(int id,int maxLenth)
         {
-            var result = QueryService.GetUserComments(Id,maxLenth);
-            ViewBag.result = result;
-            return View();
+            var result = QueryService.GetUserComments(id,maxLenth);
+            ViewBag.User = QueryService.FindUser(id);
+            ViewBag.MaxLength = maxLenth;
+            return View(result);
         }
 
-        public IActionResult UserTodoDone(int Id)
+        public IActionResult UserTodoDone(int id)
         {
-            var result = QueryService.UserTodoDone(Id);
+            var result = QueryService.UserTodoDone(id);
             ViewBag.result = result;
             return View();
         }
@@ -60,16 +74,16 @@ namespace ASP.NET_Core_MVC_Task.Controllers
             return View();
         }
 
-        public IActionResult UserStruct(int Id)
+        public IActionResult UserStruct(int id)
         {
-            var result = QueryService.GetStruct_User(Id);
+            var result = QueryService.GetStruct_User(id);
             ViewBag.result = result;
             return View();
         }
 
-        public IActionResult PostStruct(int Id)
+        public IActionResult PostStruct(int id)
         {
-            var result = QueryService.GetStruct_Post(Id);
+            var result = QueryService.GetStruct_Post(id);
             ViewBag.result = result;
             return View();
         }

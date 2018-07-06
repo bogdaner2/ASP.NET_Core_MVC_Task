@@ -44,10 +44,10 @@ namespace ASP.NET_Core_MVC_Task
                     template: "{controller=Menu}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "Entity",
-                    template: "{controller=Entity}/{action=MainPage}/{Id:int?}");
+                    template: "{controller=Entity}/{action=MainPage}/{id:int?}");
                 routes.MapRoute(
                     name: "Query",
-                    template: "{controller=Query}/{action=MainPage}/{Id:int?}");
+                    template: "{controller=Query}/{action=MainPage}/{id:int?}");
             });
 
         }

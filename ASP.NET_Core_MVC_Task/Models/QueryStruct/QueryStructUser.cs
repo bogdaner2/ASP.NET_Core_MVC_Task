@@ -1,6 +1,6 @@
 ﻿namespace ASP.NET_Core_MVC_Task.Models
 {
-    class QueryStructUser
+    public class QueryStructUser
     {
         public User User { get; set; }
         public Post LastPost { get;  }

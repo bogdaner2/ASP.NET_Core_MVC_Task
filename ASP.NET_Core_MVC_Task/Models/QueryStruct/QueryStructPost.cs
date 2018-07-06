@@ -1,6 +1,6 @@
 ﻿namespace ASP.NET_Core_MVC_Task.Models
 {
-    class QueryStructPost
+    public class QueryStructPost
     {
         public Post Post { get; set; }
         public int CountComments { get; set; }
