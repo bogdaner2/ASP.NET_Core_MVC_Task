@@ -34,8 +34,7 @@ namespace ASP.NET_Core_MVC_Task.Controllers
 
         public IActionResult Users(int Id)
         {
-            var user = QueryService.Users
-                .FirstOrDefault(u => u.Id == Id);
+            var user = QueryService.FindUser(Id);
             if (user == null)
             {
                 return View("~/Views/Shared/Error.cshtml");
@@ -44,9 +43,7 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         }
         public IActionResult Posts(int Id)
         {
-            var post = QueryService.Users
-                .SelectMany(u => u.Posts)
-                .FirstOrDefault(p => p.Id == Id);
+            var post = QueryService.FindPost(Id);
             if (post == null)
             {
                 return View("~/Views/Shared/Error.cshtml");
@@ -55,9 +52,7 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         }
         public IActionResult Todos(int Id)
         {
-            var todos = QueryService.Users
-                .SelectMany(t => t.ToDos)
-                .FirstOrDefault(t => t.Id == Id);
+            var todos = QueryService.FindTodo(Id);
             if (todos == null)
             {
                 return View("~/Views/Shared/Error.cshtml");
@@ -67,10 +62,7 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         [HttpGet]
         public IActionResult Comments(int Id)
         {
-            var comment = QueryService.Users
-                .SelectMany(u => u.Posts)
-                .SelectMany(p => p.Comments)
-                .FirstOrDefault(c => c.Id == Id);
+            var comment = QueryService.FindComment(Id);
             if (comment == null)
             {
                 return View("~/Views/Shared/Error.cshtml");
