@@ -22,11 +22,11 @@ namespace ASP.NET_Core_MVC_Task.Controllers
                  return RedirectToAction("UserComments", new { id = id ,maxLenth = maxLenth });
             }
 
+            else if (type == "todoDone")
+            {
+                return RedirectToAction("UserTodoDone", new { id = id });
+            }
             return NoContent();
-            //else if (type == "post")
-            //{
-            //    // return RedirectToAction("Posts", new { id = id });
-            //}
             //else if (type == "post")
             //{
             //    // return RedirectToAction("Posts", new { id = id });
@@ -64,6 +64,7 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         {
             var result = QueryService.UserTodoDone(id);
             ViewBag.result = result;
+            ViewBag.User = QueryService.FindUser(id);
             return View();
         }
 

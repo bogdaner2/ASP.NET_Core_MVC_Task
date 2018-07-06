@@ -4,7 +4,7 @@
 }
 
 <h2>The list of todo which are done</h2>
-<h3>User : @Html.ActionLink((string)ViewBag.User.Name, "Users", "Entity", new { id = ViewBag.User.Id }, null) Max lenth : @ViewBag.MaxLength</h3>
+<h3>User : @Html.ActionLink((string)ViewBag.User.Name, "Users", "Entity", new { id = ViewBag.User.Id }, null)</h3>
 <table class="table table-condensed">
     <thead>
         <tr>
@@ -16,8 +16,8 @@
         @foreach (var todo in ViewBag.result)
         {
             <tr>
-                <th scope="row">@todo.Id</th>
-                <td>@todo.Name</td>
+                <th scope="row">@todo.Item1</th>
+                <td> @Html.ActionLink((string)todo.Item2, "Comments", "Entity", new { id = todo.Item1 }, null)</td>
             </tr>
         }
     </tbody>
