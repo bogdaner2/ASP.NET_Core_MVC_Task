@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authentication;
 
-namespace HTTP_LINQ_Practice
+namespace ASP.NET_Core_MVC_Task.Models
 {
      static class QueryService
      {

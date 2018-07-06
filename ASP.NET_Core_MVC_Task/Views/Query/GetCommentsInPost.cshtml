@@ -1,0 +1,40 @@
+﻿<h2>User`s posts and count of they comments</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Post Title</th>
+            <th scope="col">Count of comments</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 1;}
+        @foreach (var res in ViewBag.result)
+        {
+        <tr>
+            <th scope="row">@i</th>
+            <td>
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapse1">@res.Item1.Title</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse">
+                                    <ul class="list-group">
+                                        @foreach (var p in res.Item1.Comments) 
+                                        {
+                                    <li class="list-group-item">@p.Body</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+            <td>@res.Item2</td>
+        </tr>
+            i++;
+        }
+    </tbody>
+</table>

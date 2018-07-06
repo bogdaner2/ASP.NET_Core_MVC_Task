@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace HTTP_LINQ_Practice
+namespace ASP.NET_Core_MVC_Task.Models
 {
-    class ToDo
+    public class ToDo
     {
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }

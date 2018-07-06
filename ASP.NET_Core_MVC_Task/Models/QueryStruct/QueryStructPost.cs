@@ -1,4 +1,4 @@
-﻿namespace HTTP_LINQ_Practice
+﻿namespace ASP.NET_Core_MVC_Task.Models
 {
     class QueryStructPost
     {

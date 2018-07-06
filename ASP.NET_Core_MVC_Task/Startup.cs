@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ASP.NET_Core_MVC_Task.Services;
+﻿using ASP.NET_Core_MVC_Task.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,8 +11,7 @@ namespace ASP.NET_Core_MVC_Task
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            LoadDataService data = new LoadDataService();
-            data.LoadData();
+            LoadDataService.LoadData();
         }
 
         public IConfiguration Configuration { get; }
@@ -46,8 +41,12 @@ namespace ASP.NET_Core_MVC_Task
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Menu}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "Entity",
+                    template: "{controller=Entity}/{action=MainPage}/{commentId?}");
             });
+
         }
     }
 }

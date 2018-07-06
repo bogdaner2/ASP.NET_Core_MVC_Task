@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ASP.NET_Core_MVC_Task.Models;
-using HTTP_LINQ_Practice;
+
 
 namespace ASP.NET_Core_MVC_Task.Controllers
 {
-    public class HomeController : Controller
+    public class MenuController : Controller
     {
         public IActionResult Index()
         {
-            ViewBag.Users = QueryService.Users[0].Name;
+            ViewBag.Users = QueryService.Users[0].Avatar;
             return View();
         }
 

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HTTP_LINQ_Practice
+namespace ASP.NET_Core_MVC_Task.Models
 {
-    class User
+    public class User
     {
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -15,3 +15,4 @@ namespace HTTP_LINQ_Practice
 
     }
 }
+
