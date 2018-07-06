@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using ASP.NET_Core_MVC_Task.Models;
+using ASP.NET_Core_MVC_Task.Models.Entity;
 using Newtonsoft.Json;
 
 namespace ASP.NET_Core_MVC_Task.Services
@@ -16,11 +17,13 @@ namespace ASP.NET_Core_MVC_Task.Services
             var posts = DownloadDataAsync<List<Post>>("https://5b128555d50a5c0014ef1204.mockapi.io/posts").Result;
             var todos = DownloadDataAsync<List<ToDo>>("https://5b128555d50a5c0014ef1204.mockapi.io/todos").Result;
             var comments = DownloadDataAsync<List<Comment>>("https://5b128555d50a5c0014ef1204.mockapi.io/comments").Result;
+            var adress = DownloadDataAsync<List<Address>>("https://5b128555d50a5c0014ef1204.mockapi.io/address").Result;
             posts.ForEach(p => p.Comments = comments.Where(c => c.PostId == p.Id).ToList());
             users.ForEach(user => user.Posts = posts.Where(x => x.UserId == user.Id).ToList());
             users.ForEach(user => user.ToDos = todos.Where(x => x.UserId == user.Id).ToList());
             QueryService.Users = users;
-            
+            QueryService.Adress = adress;
+
         }
         private static async Task<T> DownloadDataAsync<T>(string url)
         {

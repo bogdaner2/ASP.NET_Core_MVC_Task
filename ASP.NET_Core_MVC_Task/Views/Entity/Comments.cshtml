@@ -1,13 +1,15 @@
 ﻿@model Comment
 @{
-    ViewData["Title"] = "User";
+    ViewData["Title"] = "Comment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Comment id : @Model.Id</h2>
-<h3>Text : @Model.Body</h3>
-<h3>Comment created at : @Model.CreatedAt</h3>
-<h3>Likes : @Model.Likes</h3>
-<h3>Post id :@Model.PostId</h3>
-<h3>User id : @Model.UserId</h3>
-
+<h1>Comment Info</h1>
+<hr />
+<div class=" well well-lg">
+    <h2>Comment id : @Model.Id</h2>
+    <h3>Text : @Model.Body</h3>
+    <h3>Comment created at : @Model.CreatedAt</h3>
+    <h3>Likes : @Model.Likes</h3>
+    <h3>Post id :@Model.PostId</h3>
+    <h3>User id : @Model.UserId</h3>
+</div>

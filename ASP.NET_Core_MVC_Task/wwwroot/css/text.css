@@ -10,4 +10,7 @@
 .cont {
     background-color: rgb(176, 224, 230);
 }
-
+.navbar-default {
+    background-color: #008b8b;
+    border-color: #7fffd4;
+}

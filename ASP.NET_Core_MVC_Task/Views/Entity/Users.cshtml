@@ -1,8 +1,45 @@
-﻿
+﻿@model User
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Post";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>View</h2>
-
+<h1>User Info</h1>
+<hr />
+<div class=" well well-lg">
+    <h2>User id : @Model.Id</h2>
+    <h3>User name : @Model.Name</h3>
+    <h3>Email : @Model.Email</h3>
+    <h3>User created at : @Model.CreatedAt</h3>
+    <div>
+        <img src="@Model.Avatar" style="border:1px solid #021a40;" />
+        <h3>Avatar</h3>
+    </div>
+    @if (Model.Posts.Count != 0)
+    {
+        <h3>Posts :</h3>
+        <ul>
+            @foreach (var post in Model.Posts)
+            {
+                <li>@Html.ActionLink(post.Body, "Posts", "Entity", new { id = post.Id }, null)</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <h3>No posts</h3>
+    }
+    @if (Model.ToDos.Count != 0)
+    {
+        <h3>Todo :</h3>
+        <ul>
+            @foreach (var todo in Model.ToDos)
+            {
+                <li>@Html.ActionLink(todo.Name, "Todos", "Entity", new { id = todo.Id }, null)</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <h3>No todos</h3>
+    }
+</div>

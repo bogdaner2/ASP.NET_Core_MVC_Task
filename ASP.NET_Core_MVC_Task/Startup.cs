@@ -45,6 +45,9 @@ namespace ASP.NET_Core_MVC_Task
                 routes.MapRoute(
                     name: "Entity",
                     template: "{controller=Entity}/{action=MainPage}/{Id:int?}");
+                routes.MapRoute(
+                    name: "Query",
+                    template: "{controller=Query}/{action=MainPage}/{Id:int?}");
             });
 
         }

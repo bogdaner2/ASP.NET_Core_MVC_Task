@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using ASP.NET_Core_MVC_Task.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace ASP.NET_Core_MVC_Task.Controllers
 {
@@ -35,15 +34,35 @@ namespace ASP.NET_Core_MVC_Task.Controllers
 
         public IActionResult Users(int Id)
         {
-            return View();
+            var user = QueryService.Users
+                .FirstOrDefault(u => u.Id == Id);
+            if (user == null)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+            return View(user);
         }
         public IActionResult Posts(int Id)
         {
-            return View();
+            var post = QueryService.Users
+                .SelectMany(u => u.Posts)
+                .FirstOrDefault(p => p.Id == Id);
+            if (post == null)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+            return View(post);
         }
-        public IActionResult Todos()
+        public IActionResult Todos(int Id)
         {
-            return View();
+            var todos = QueryService.Users
+                .SelectMany(t => t.ToDos)
+                .FirstOrDefault(t => t.Id == Id);
+            if (todos == null)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+            return View(todos);
         }
         [HttpGet]
         public IActionResult Comments(int Id)
@@ -54,7 +73,7 @@ namespace ASP.NET_Core_MVC_Task.Controllers
                 .FirstOrDefault(c => c.Id == Id);
             if (comment == null)
             {
-                return View("~/Views/Entity/Error.cshtml");
+                return View("~/Views/Shared/Error.cshtml");
             }
             return View(comment);
         }

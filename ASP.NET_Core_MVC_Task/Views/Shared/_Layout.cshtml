@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ASP.NET_Core_MVC_Task</title>
+    <title>@ViewData["Title"]</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -19,7 +19,7 @@
    
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -32,9 +32,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Query" asp-action="GetCommentsInPost">User pages</a></li>
-                    <li><a asp-area="" asp-controller="Query" asp-action="GetCommentsInPost">Queries</a></li>
-                    <li><a asp-area="" asp-controller="Entity" asp-action="MainPage">Entities info</a></li>
+                    <li><a asp-area="" asp-controller="Menu" asp-action="UserPage">User pages</a></li>
+                    <li><a asp-area="" asp-controller="Query" asp-action="" >Queries</a></li>
+                    <li><a asp-area="" asp-controller="Entity" asp-action="">Entities info</a></li>
                 </ul>
             </div>
         </div>

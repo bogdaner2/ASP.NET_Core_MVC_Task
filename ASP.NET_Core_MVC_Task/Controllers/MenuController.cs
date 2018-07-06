@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using ASP.NET_Core_MVC_Task.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 
 
 namespace ASP.NET_Core_MVC_Task.Controllers
@@ -9,21 +7,11 @@ namespace ASP.NET_Core_MVC_Task.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.Users = QueryService.Users[0].Avatar;
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult UserPage()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
     }

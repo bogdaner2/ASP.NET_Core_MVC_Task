@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Authentication;
+using ASP.NET_Core_MVC_Task.Models.Entity;
 
 namespace ASP.NET_Core_MVC_Task.Models
 {
      static class QueryService
      {
         public static List<User> Users { get; set; }
+        public static List<Address> Adress { get; set; }
         public static List<(Post,int)> GetCommentsInPost(int userId)
         {     
             var result = Users
@@ -73,7 +74,7 @@ namespace ASP.NET_Core_MVC_Task.Models
             if (post == null) return null;
             var longestComment = post.Comments.OrderByDescending(c => c.Body.Length).FirstOrDefault();
             var mostLikestComment = post.Comments.OrderByDescending(c => c.Likes).FirstOrDefault();
-            var commCount = post.Comments.Where(c => c.Likes == 0 || c.Body.Length < 80).ToList().Count;
+            var commCount = post.Comments.Count(c => c.Likes == 0 || c.Body.Length < 80);
             return new QueryStructPost(post,longestComment,mostLikestComment,commCount);
         }
     }
