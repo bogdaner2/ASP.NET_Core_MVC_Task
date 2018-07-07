@@ -21,9 +21,10 @@ namespace ASP.NET_Core_MVC_Task.Services
             posts.ForEach(p => p.Comments = comments.Where(c => c.PostId == p.Id).ToList());
             users.ForEach(user => user.Posts = posts.Where(x => x.UserId == user.Id).ToList());
             users.ForEach(user => user.ToDos = todos.Where(x => x.UserId == user.Id).ToList());
-            QueryService.Users = users;
+            users.ForEach(user => user.Address = adress.FirstOrDefault(adr => adr.UserId == user.Id));
+            users.ForEach(user => user.UserComments = comments.Where(c => c.UserId == user.Id).ToList());
             QueryService.Adress = adress;
-
+            QueryService.Users = users;
         }
         private static async Task<T> DownloadDataAsync<T>(string url)
         {

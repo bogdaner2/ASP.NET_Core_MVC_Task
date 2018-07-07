@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ASP.NET_Core_MVC_Task.Models.Entity;
 
 namespace ASP.NET_Core_MVC_Task.Models
 {
@@ -12,6 +13,8 @@ namespace ASP.NET_Core_MVC_Task.Models
         public string Email { get; set; }
         public List<Post> Posts { get; set; }
         public List<ToDo> ToDos { get; set; }
+        public List<Comment> UserComments { get; set; }
+        public Address Address { get; set; }
     }
 }
 

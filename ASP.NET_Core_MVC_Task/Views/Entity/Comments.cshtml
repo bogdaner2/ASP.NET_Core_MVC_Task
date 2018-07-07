@@ -3,13 +3,17 @@
     ViewData["Title"] = "Comment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Comment Info</h1>
-<hr />
-<div class=" well well-lg">
-    <h2>Comment id : @Model.Id</h2>
-    <h3>Text : @Model.Body</h3>
-    <h3>Comment created at : @Model.CreatedAt</h3>
-    <h3>Likes : @Model.Likes</h3>
-    <h3>Post id :@Model.PostId</h3>
-    <h3>User id : @Model.UserId</h3>
+<div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <br />
+    <h1 style="margin: 20px;">Comment Info</h1>
+    <hr/>
+    <div style="margin: 20px;">
+        <h2>Comment id : @Model.Id</h2>
+        <h3>Text : @Model.Body</h3>
+        <h3>Comment created at : @Model.CreatedAt</h3>
+        <h3>Likes : @Model.Likes</h3>
+        <h3>Post id :@Model.PostId</h3>
+        <h3>User id : @Model.UserId</h3>
+    </div>
+    <br/>
 </div>
