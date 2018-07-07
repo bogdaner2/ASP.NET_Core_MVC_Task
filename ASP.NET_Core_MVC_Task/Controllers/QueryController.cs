@@ -26,28 +26,28 @@ namespace ASP.NET_Core_MVC_Task.Controllers
             {
                 return RedirectToAction("UserTodoDone", new { id = id });
             }
+            else if (type == "sortByTodo")
+            {
+                return RedirectToAction("UserSortByTodo");
+            }
+            else if (type == "userStruct")
+            {
+                return RedirectToAction("UserStruct",new {id = id});
+            }
+            else if (type == "postStruct")
+            {
+                return RedirectToAction("PostStruct", new {id = id});
+            }
             return NoContent();
-            //else if (type == "post")
-            //{
-            //    // return RedirectToAction("Posts", new { id = id });
-            //}
-            //else if (type == "post")
-            //{
-            //    // return RedirectToAction("Posts", new { id = id });
-            //}
-            //else if (type == "post")
-            //{
-            //    // return RedirectToAction("Posts", new { id = id });
-            //}
-            //else
-            //{
-            //     return RedirectToAction("PostStruct", new { id = id });
-            //}
         }
 
         public IActionResult CommentsInPost(int id)
         {
             var result = QueryService.GetCommentsInPost(id);
+            if (result == null)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
             ViewBag.result = result;
             return View();
         }
@@ -55,6 +55,10 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         public IActionResult UserComments(int id,int maxLenth)
         {
             var result = QueryService.GetUserComments(id,maxLenth);
+            if (result == null)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
             ViewBag.User = QueryService.FindUser(id);
             ViewBag.MaxLength = maxLenth;
             return View(result);
@@ -63,6 +67,10 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         public IActionResult UserTodoDone(int id)
         {
             var result = QueryService.UserTodoDone(id);
+            if (result == null)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
             ViewBag.result = result;
             ViewBag.User = QueryService.FindUser(id);
             return View();
@@ -71,22 +79,27 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         public IActionResult UserSortByTodo()
         {
             var result = QueryService.UserSortByTodo();
-            ViewBag.result = result;
-            return View();
+            return View(result);
         }
 
         public IActionResult UserStruct(int id)
         {
             var result = QueryService.GetStruct_User(id);
-            ViewBag.result = result;
-            return View();
+            if (result == null)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+            return View(result);
         }
 
         public IActionResult PostStruct(int id)
         {
             var result = QueryService.GetStruct_Post(id);
-            ViewBag.result = result;
-            return View();
+            if (result == null)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+            return View(result);
         }
 
     }

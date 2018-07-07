@@ -1,8 +1,46 @@
-﻿
+﻿@model QueryStructPost
 @{
-    ViewData["Title"] = "GetComments";
+    ViewData["Title"] = "Post struct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>GetComments</h2>
+<h2>Post struct</h2>
+<h3>Post : @Html.ActionLink(Model.Post.Title, "Posts", "Entity", new { id = Model.Post.Id }, null)</h3>
+<div class="table-responsive">
+    <table class="table table-bordered" >
+        <thead>
+        <tr>
+            <th scope="col">Post</th>
+            <th scope="col">Longest comment</th>
+            <th scope="col">The most liked</th>
+            <th scope="col">Count of comments (likes = 0 or Length < 80)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">@Model.Post.Title</th>
+            @if (Model.LongestComment != null)
+            {
+                <td>
+                    <a data-toggle="collapse" href="#collapseComm" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.LongestComment.Body</a>
+                    <div class="collapse panel-title" id="collapseComm">Likes : @Model.LongestComment.Body.Length</div>
+                </td>
+            }
+            else { <td>No comment</td>}
+        @if (Model.MostLikedComment != null)
+        {
+            <td>
+                <a data-toggle="collapse" href="#collapseLike" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.MostLikedComment.Body</a>
+                <div class="collapse panel-title" id="collapseLike">Likes : @Model.MostLikedComment.Likes</div>
+            </td>
+        }else { <td>No comment</td>}
+            <td>
+                @Model.CountComments
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 

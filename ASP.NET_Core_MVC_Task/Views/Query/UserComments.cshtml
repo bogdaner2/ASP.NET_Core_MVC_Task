@@ -19,7 +19,7 @@
     {
         <tr>
             <th scope="row">@comment.Id</th>
-            <td>@comment.Body</td>
+            <td>@Html.ActionLink(comment.Body, "Comments", "Entity", new { id = comment.Id }, null)</td>
             <td>@comment.Body.Length</td>
         </tr>
     }

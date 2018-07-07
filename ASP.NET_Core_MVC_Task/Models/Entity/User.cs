@@ -12,7 +12,6 @@ namespace ASP.NET_Core_MVC_Task.Models
         public string Email { get; set; }
         public List<Post> Posts { get; set; }
         public List<ToDo> ToDos { get; set; }
-
     }
 }
 

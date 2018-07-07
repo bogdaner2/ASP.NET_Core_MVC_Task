@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASP.NET_Core_MVC_Task.Models;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace ASP.NET_Core_MVC_Task.Controllers
@@ -12,7 +13,8 @@ namespace ASP.NET_Core_MVC_Task.Controllers
 
         public IActionResult UserPage()
         {
-            return View();
+            var users = QueryService.Users;
+            return View(users);
         }
     }
 }
