@@ -25,9 +25,16 @@
                             </div>
                             <div id="@i" class="panel-collapse collapse">
                                 <ul class="list-group">
-                                    @foreach (var c in res.Item1.Comments)
+                                    @if (res.Item1.Comments.Count != 0)
                                     {
-                                        <li class="list-group-item">@Html.ActionLink("Comment: " + (string) c.Body, "Comments", "Entity", new {id = c.Id}, null)</li>
+                                        foreach (var c in res.Item1.Comments)
+                                         {
+                                             <li class="list-group-item">@Html.ActionLink("Comment: " + (string) c.Body, "Comments", "Entity", new {id = c.Id}, null)</li>
+                                         }
+                                    }
+                                    else
+                                    {
+                                        <li class="list-group-item" >No comments</li>
                                     }
                                 </ul>
                             </div>

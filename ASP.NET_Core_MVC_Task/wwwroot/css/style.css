@@ -1,14 +1,9 @@
-﻿.headMenu {
+﻿.Menu {
     color: white;
-    size: 16px;
+    font-size: 30px;
+    font-weight: bold;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
-}
-.body {
-    background-color: rgb(135, 206, 250);
-}
-.cont {
-    background-color: rgb(176, 224, 230);
 }
 .navbar-default {
     background-color: #69899f;

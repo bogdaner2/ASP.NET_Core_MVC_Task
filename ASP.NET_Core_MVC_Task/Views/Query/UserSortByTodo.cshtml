@@ -27,9 +27,16 @@
                         </div>
                         <div id="@i" class="panel-collapse collapse">
                             <ul class="list-group">
-                                @foreach (var t in res.ToDos)
+                                @if (res.ToDos.Count != 0)
                                 {
-                                    <li class="list-group-item">@Html.ActionLink("Todo: " + t.Name, "Todos", "Entity", new {id = t.Id}, null)</li>
+                                    foreach (var t in res.ToDos)
+                                     {
+                                         <li class="list-group-item">@Html.ActionLink("Todo: " + t.Name, "Todos", "Entity", new {id = t.Id}, null)</li>
+                                     }
+                                }
+                                else
+                                {
+                                    <li class="list-group-item">No todos</li>
                                 }
                             </ul>
                         </div>
