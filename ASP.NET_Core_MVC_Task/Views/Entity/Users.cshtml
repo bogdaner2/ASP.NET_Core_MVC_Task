@@ -13,7 +13,7 @@
         <h3>Email : @Model.Email</h3>
         <h3>User created at : @Model.CreatedAt</h3>
         <div>
-            <img src="@Model.Avatar" style="border: 1px solid #021a40;"/>
+            <img src="@Model.Avatar" class="img-thumbnail"/>
             <h3>Avatar</h3>
         </div>
         @if (Model.Posts.Count != 0)
@@ -22,7 +22,7 @@
             <ul>
                 @foreach (var post in Model.Posts)
                 {
-                    <li>@Html.ActionLink(post.Body, "Posts", "Entity", new {id = post.Id}, null)</li>
+                    <li>@Html.ActionLink(post.Title, "Posts", "Entity", new {id = post.Id}, null)</li>
                 }
             </ul>
         }

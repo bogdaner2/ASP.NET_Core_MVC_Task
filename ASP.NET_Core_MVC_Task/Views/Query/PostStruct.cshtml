@@ -23,7 +23,7 @@
             {
                 <td>
                     <a data-toggle="collapse" href="#collapseComm" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.LongestComment.Body</a>
-                    <div class="collapse panel-title" id="collapseComm">Likes : @Model.LongestComment.Body.Length</div>
+                    <div class="collapse panel-title" id="collapseComm"><hr />Likes : @Model.LongestComment.Body.Length</div>
                 </td>
             }
             else { <td>No comment</td>}
@@ -31,7 +31,7 @@
         {
             <td>
                 <a data-toggle="collapse" href="#collapseLike" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.MostLikedComment.Body</a>
-                <div class="collapse panel-title" id="collapseLike">Likes : @Model.MostLikedComment.Likes</div>
+                <div class="collapse panel-title" id="collapseLike"><hr />Likes : @Model.MostLikedComment.Likes</div>
             </td>
         }else { <td>No comment</td>}
             <td>

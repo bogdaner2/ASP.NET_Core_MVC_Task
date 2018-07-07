@@ -1,9 +1,12 @@
-﻿.Menu {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+﻿@font-face {
+    font-family: SF Text;
+    font-weight: 200;
+    src: url("https://sf.abarba.me/SF-UI-Text-Light.otf");
+}
+.Menu {
+    font-family: SF Text, sans-serif;
+    color: rgb(29,29,29);
+    font-size: 40px;
 }
 .navbar-default {
     background-color: #69899f;

@@ -23,17 +23,17 @@
                 <th scope="row">@Model.User.Name</th>
                 <td>
                     <a data-toggle="collapse" href="#collapseLastPost" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.LastPost.Title</a>
-                    <div class="collapse panel-title" id="collapseLastPost">Created at : @Model.LastPost.CreatedAt</div>
+                    <div class="collapse panel-title" id="collapseLastPost"><hr />Created at : @Model.LastPost.CreatedAt</div>
                 </td>
                 <td>@Model.CountPostComments</td>
                 <td>@Model.NonCompleteTasks</td>
                 <td>
                     <a data-toggle="collapse" href="#collapseLike" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.PopularPostLike.Title</a>
-                    <div class="collapse panel-title" id="collapseLike">Likes : @Model.PopularPostLike.Likes</div>
+                    <div class="collapse panel-title" id="collapseLike"><hr/> Likes : @Model.PopularPostLike.Likes</div>
                 </td>
                 <td>
                     <a data-toggle="collapse" href="#collapseComm" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.PopularPostComm.Title</a>
-                    <div class="collapse panel-title" id="collapseComm">Count : @Model.PopularPostComm.Comments.Count</div>
+                    <div class="collapse panel-title" id="collapseComm"><hr />Count : @Model.PopularPostComm.Comments.Count</div>
                 </td>
 
             </tr>

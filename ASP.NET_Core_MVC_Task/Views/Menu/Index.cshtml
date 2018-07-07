@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/style.css" />
-        <link rel="stylesheet" href="css/button.css"/>
+        <link rel="stylesheet" href="css/button.css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -29,6 +30,7 @@
                     <h4 class="panel-title" align="center">Menu</h4>
                 </div>
                 <div class="panel-body">
+                    <br />
                     <div class="row ">
                         <div align="center" class="Menu">
                             Binary Studio Academy
@@ -37,18 +39,19 @@
                             Task: ASP.NET Core MVC
                         </div>
                         <br />
+                        <hr />
                         <div align="center">
-                            @Html.ActionLink("Users page", "UserPage", "Menu", null, new { @class = "btn btn--border btn--primary btn--animated" })
+                            @Html.ActionLink("Users page", "UserPage", "Menu", null, new {@class = "btn btn--border btn--primary btn--animated"})
                         </div>
                         <br />
                         <div align="center">
-                            @Html.ActionLink("Queries", "MainPage", "Query", null, new { @class = "btn btn--border btn--primary btn--animated" })
+                            @Html.ActionLink("Queries", "MainPage", "Query", null, new {@class = "btn btn--border btn--primary btn--animated"})
                         </div>
                         <br />
                         <div align="center">
-                            @Html.ActionLink("Entities", "MainPage", "Entity", null, new { @class = "btn btn--border btn--primary btn--animated" })
+                            @Html.ActionLink("Entities", "MainPage", "Entity", null, new {@class = "btn btn--border btn--primary btn--animated"})
                         </div>
-                        <br />
+                        <br/>
                     </div>
                 </div>
             </div>
