@@ -34,11 +34,10 @@ namespace ASP.NET_Core_MVC_Task.Controllers
             {
                 return RedirectToAction("UserStruct",new {id = id});
             }
-            else if (type == "postStruct")
+            else
             {
                 return RedirectToAction("PostStruct", new {id = id});
             }
-            return NoContent();
         }
 
         public IActionResult CommentsInPost(int id)
