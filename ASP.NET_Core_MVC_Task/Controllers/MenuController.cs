@@ -11,11 +11,5 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         {
             return View();
         }
-
-        public IActionResult UserPage()
-        {
-            var users = QueryService.Users;
-            return View(users);
-        }
     }
 }
