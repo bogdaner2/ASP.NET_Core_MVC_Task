@@ -1,7 +1,10 @@
-﻿<h2>User`s posts and count of they comments</h2>
+﻿@{
+    ViewBag.Title = "Comments in post";
+}
+<h2>User`s posts and count of they comments</h2>
 @if (ViewBag.result.Count != 0)
 {
-<table class="table table-condensed">
+<table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">#</th>
