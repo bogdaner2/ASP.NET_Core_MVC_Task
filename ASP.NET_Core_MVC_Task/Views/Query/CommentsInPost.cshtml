@@ -1,7 +1,10 @@
-﻿<h2>User`s posts and count of they comments</h2>
+﻿@{
+    ViewBag.Title = "Comments in post";
+}
+<h2>User`s posts and count of they comments</h2>
 @if (ViewBag.result.Count != 0)
 {
-<table class="table table-condensed">
+<table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -18,12 +21,13 @@
                 <td>
                     <div class="panel-group">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-body">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" href="#@i">@res.Item1.Title</a>
+                                    <button class="btn btn-default" data-toggle="collapse" href="#@i"><i class="glyphicon glyphicon-align-justify"></i></button>
+                                    @Html.ActionLink((string)res.Item1.Title,"Posts","Entity",new {id = res.Item1.Id},null)
                                 </h4>
                             </div>
-                            <div id="@i" class="panel-collapse collapse">
+                            <div id="@i" class="panel-body collapse">
                                 <ul class="list-group">
                                     @if (res.Item1.Comments.Count != 0)
                                     {

@@ -59,7 +59,6 @@ namespace ASP.NET_Core_MVC_Task.Controllers
             }
             return View(todos);
         }
-        [HttpGet]
         public IActionResult Comments(int id)
         {
             var comment = QueryService.FindComment(id);
