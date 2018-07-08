@@ -1,0 +1,24 @@
+﻿@model ToDo
+@{
+    ViewData["Title"] = "Todo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <br />
+    <h1 style="margin: 20px;">Todo Info</h1>
+    <hr/>
+    <div style="margin: 20px;">
+        <h2>Todo id : @Model.Id</h2>
+        <h3>Name : @Model.Name</h3>
+        @if (Model.IsComplete == true)
+        {
+            <h3>Is todo complete? : Yes</h3>
+        }
+        else
+        {
+            <h3>Is todo complete? : No</h3>}
+        <h3>Todo created at : @Model.CreatedAt</h3>
+        <h3>User id : @Model.UserId</h3>
+    </div>
+    <br />
+</div>

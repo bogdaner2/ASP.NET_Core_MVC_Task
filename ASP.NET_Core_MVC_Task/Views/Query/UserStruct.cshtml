@@ -1,0 +1,43 @@
+﻿@model QueryStructUser
+@{
+    ViewData["Title"] = "User struct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User struct</h2>
+<h3>User : @Html.ActionLink(Model.User.Name, "Users", "Entity", new { id = Model.User.Id }, null)</h3>
+<div class="table-responsive">
+    <table class="table table-condensed" >
+        <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Last post</th>
+                <th scope="col">Count of comments below last post</th>
+                <th scope="col">Non complete tasks</th>
+                <th scope="col">The most popular (by like)</th>
+                <th scope="col">The most popular post (by comments)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">@Model.User.Name</th>
+                <td>
+                    <a data-toggle="collapse" href="#collapseLastPost" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.LastPost.Title</a>
+                    <div class="collapse panel-title" id="collapseLastPost"><hr />Created at : @Model.LastPost.CreatedAt</div>
+                </td>
+                <td>@Model.CountPostComments</td>
+                <td>@Model.NonCompleteTasks</td>
+                <td>
+                    <a data-toggle="collapse" href="#collapseLike" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.PopularPostLike.Title</a>
+                    <div class="collapse panel-title" id="collapseLike"><hr/> Likes : @Model.PopularPostLike.Likes</div>
+                </td>
+                <td>
+                    <a data-toggle="collapse" href="#collapseComm" role="button" aria-expanded="false" aria-controls="collapseExample">@Model.PopularPostComm.Title</a>
+                    <div class="collapse panel-title" id="collapseComm"><hr />Count : @Model.PopularPostComm.Comments.Count</div>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+

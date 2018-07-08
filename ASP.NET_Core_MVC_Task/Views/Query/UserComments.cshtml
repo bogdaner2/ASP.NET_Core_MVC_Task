@@ -1,0 +1,28 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "GetComments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>The list of comments below user's posts which less than specified lenth</h2>
+<h3>User : @Html.ActionLink((string)ViewBag.User.Name, "Users", "Entity", new { id = ViewBag.User.Id }, null) Max lenth : @ViewBag.MaxLength</h3>
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Comment body:</th>
+        <th scope="col">Length</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var comment in @Model)
+    {
+        <tr>
+            <th scope="row">@comment.Id</th>
+            <td>@Html.ActionLink(comment.Body, "Comments", "Entity", new { id = comment.Id }, null)</td>
+            <td>@comment.Body.Length</td>
+        </tr>
+    }
+    </tbody>
+</table>
+

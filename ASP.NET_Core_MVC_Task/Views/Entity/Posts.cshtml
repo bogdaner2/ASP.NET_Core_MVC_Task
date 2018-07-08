@@ -1,0 +1,33 @@
+﻿@model Post
+@{
+    ViewData["Title"] = "Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <br />
+    <h1 style="margin: 20px;">Post Info</h1>
+    <hr/>
+    <div style="margin: 20px;">
+        <h2>Post id : @Model.Id</h2>
+        <h3>Title : @Model.Title</h3>
+        <h3>Text : @Model.Body</h3>
+        <h3>Post created at : @Model.CreatedAt</h3>
+        <h3>Likes : @Model.Likes</h3>
+        <h3>User id : @Model.UserId</h3>
+        @if (Model.Comments.Count != 0)
+        {
+            <h3>Comments :</h3>
+            <ul>
+                @foreach (var comm in Model.Comments)
+                {
+                    <li>@Html.ActionLink(comm.Body, "Comments", "Entity", new {id = comm.Id}, null)</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <h3>No comments</h3>
+        }
+    </div>
+    <br />
+</div>

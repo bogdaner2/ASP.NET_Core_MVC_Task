@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ASP.NET_Core_MVC_Task.Models.Entity;
 
-namespace HTTP_LINQ_Practice
+namespace ASP.NET_Core_MVC_Task.Models
 {
      static class QueryService
      {
         public static List<User> Users { get; set; }
+        public static List<Address> Adress { get; set; }
         public static List<(Post,int)> GetCommentsInPost(int userId)
         {     
             var result = Users
@@ -22,7 +24,7 @@ namespace HTTP_LINQ_Practice
             {
                 var result = user.Posts
                     .SelectMany(p => p.Comments)
-                    .Where(c => c.UserId == userId && c.Body.Length < maxLenth);
+                    .Where(c => c.Body.Length < maxLenth);
                 return result.ToList();
             }
             return null;
@@ -72,8 +74,32 @@ namespace HTTP_LINQ_Practice
             if (post == null) return null;
             var longestComment = post.Comments.OrderByDescending(c => c.Body.Length).FirstOrDefault();
             var mostLikestComment = post.Comments.OrderByDescending(c => c.Likes).FirstOrDefault();
-            var commCount = post.Comments.Where(c => c.Likes == 0 || c.Body.Length < 80).ToList().Count;
+            var commCount = post.Comments.Count(c => c.Likes == 0 || c.Body.Length < 80);
             return new QueryStructPost(post,longestComment,mostLikestComment,commCount);
         }
+        public static User FindUser(int id)
+        {
+             return Users.FirstOrDefault(u => u.Id == id);
+        }
+        public static Post FindPost(int id)
+        {
+            return Users
+                .SelectMany(u => u.Posts)
+                .FirstOrDefault(p => p.Id == id);
+        }
+        public static ToDo FindTodo(int id)
+        {
+            return Users
+                 .SelectMany(t => t.ToDos)
+                 .FirstOrDefault(t => t.Id == id);
+        }
+        public static Comment FindComment(int id)
+        {
+            return QueryService.Users
+                .SelectMany(u => u.Posts)
+                .SelectMany(p => p.Comments)
+                .FirstOrDefault(c => c.Id == id);
+        }
+
     }
 }

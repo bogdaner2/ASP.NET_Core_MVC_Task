@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Query";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Please select query and input data</h2>
+@using (Html.BeginForm("Select", "Query", FormMethod.Post)) 
+{
+<fieldset>
+    <legend>Choose type of query</legend>
+
+    <div class="form-group">
+        <input type="radio" id="comInPost" name="type" value="comInPost" checked />
+        <label for="comInPost">Get count of comments in user`s posts</label>
+    </div>
+
+    <div class="form-group">
+        <input type="radio" name="type" id="comByLen" value="comByLen" />
+        <label for="comByLen">Get user`s comments which less than specified length</label>
+        <input type="number" name="maxLenth" value="comByLen" min="1" style="width: 50px" />
+        <label for="comByLen">Input length</label>
+    </div>
+
+    <div class="form-group">
+        <input type="radio" name = "type" id="todoDone" value="todoDone" />
+        <label for="todoDone">Get user`s todos which are done</label>
+    </div>
+
+    <div class="form-group">
+        <input type="radio" name = "type" id="sortByTodo" value="sortByTodo" />
+        <label for="sortByTodo">Get sorted users with descending sorted todos (submit without params)</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="radio" name = "type" id="userStruct" value="userStruct" />
+        <label for="userStruct">Get user struct</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="radio" name = "type" id="postStruct" value="postStruct" />
+        <label for="postStruct">Get post struct</label>
+    </div>
+    <div class="form-group">
+        <div>
+            <p><strong>Input Id:</strong>  <input type="number" name="id" style="width: 40px" min="1" /></p>
+        </div>
+        <input class="btn-default" type="submit" value="Submit"/>
+
+    </div>
+</fieldset>
+}
+
+

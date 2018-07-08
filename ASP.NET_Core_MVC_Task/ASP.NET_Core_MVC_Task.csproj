@@ -13,11 +13,4 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Todo\" />
-    <Folder Include="Views\Comment\" />
-    <Folder Include="Views\Post\" />
-    <Folder Include="Views\User\" />
-  </ItemGroup>
-
 </Project>

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using ASP.NET_Core_MVC_Task.Models.Entity;
 
-namespace HTTP_LINQ_Practice
+namespace ASP.NET_Core_MVC_Task.Models
 {
-    class User
+    public class User
     {
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -12,6 +13,8 @@ namespace HTTP_LINQ_Practice
         public string Email { get; set; }
         public List<Post> Posts { get; set; }
         public List<ToDo> ToDos { get; set; }
-
+        public List<Comment> UserComments { get; set; }
+        public Address Address { get; set; }
     }
 }
+

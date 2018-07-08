@@ -1,0 +1,51 @@
+﻿<h2>User`s posts and count of they comments</h2>
+@if (ViewBag.result.Count != 0)
+{
+<table class="table table-condensed">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Post Title</th>
+            <th scope="col">Count of comments</th>
+        </tr>
+        </thead>
+        <tbody>
+        @{ int i = 1; }
+        @foreach (var res in ViewBag.result)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#@i">@res.Item1.Title</a>
+                                </h4>
+                            </div>
+                            <div id="@i" class="panel-collapse collapse">
+                                <ul class="list-group">
+                                    @if (res.Item1.Comments.Count != 0)
+                                    {
+                                        foreach (var c in res.Item1.Comments)
+                                         {
+                                             <li class="list-group-item">@Html.ActionLink("Comment: " + (string) c.Body, "Comments", "Entity", new {id = c.Id}, null)</li>
+                                         }
+                                    }
+                                    else
+                                    {
+                                        <li class="list-group-item" >No comments</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>@res.Item2</td>
+            </tr>
+            i++;
+        }
+        </tbody>
+    </table>
+}
+else { <h2>No posts</h2>}
