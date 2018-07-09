@@ -14,22 +14,14 @@ namespace ASP.NET_Core_MVC_Task.Controllers
         [HttpPost]
         public IActionResult Select(int id,string type)
         {
-            if (type == "comment")
+            switch (type)
             {
-                return RedirectToAction("Comments", new {id = id});
+                case "comment": return RedirectToAction("Comments", new { id = id });
+                case "user": return RedirectToAction("Users", new { id = id });
+                case "post": return RedirectToAction("Posts", new { id = id });
+                case "todo": return RedirectToAction("Todos", new { id = id });
             }
-            else if (type == "user")
-            {
-                return RedirectToAction("Users", new { id = id });
-            }
-            else if (type == "post")
-            {
-                return RedirectToAction("Posts", new {id = id});
-            }
-            else
-            {
-                return RedirectToAction("Todos", new { id = id });
-            }
+            return NoContent();
         }
 
         public IActionResult Users(int id)
